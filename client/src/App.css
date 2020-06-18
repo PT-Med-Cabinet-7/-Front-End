@@ -2,8 +2,8 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
-  --dark-color: #333333;
+  --primary-color: #86C232;
+  --dark-color: #222629;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -46,6 +46,7 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+  /* background-color: var(--dark-color); */
 }
 
 /* Text Styles*/
@@ -433,6 +434,7 @@ table th {
 
   .navbar h1 {
     margin-bottom: 0.6rem;
+    color: var(--dark-color);
   }
 
   .navbar ul {
