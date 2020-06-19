@@ -1,11 +1,11 @@
 import React from 'react'
-import LoginReg from './LoginReg'
+import SignUp from './SignUp'
 
 export const Home = () => {
     return (
         <div >
            <div>
-            <LoginReg/>
+            <SignUp/>
            </div>
         </div>
     )

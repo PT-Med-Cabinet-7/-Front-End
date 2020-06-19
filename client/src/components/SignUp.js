@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 
 
-export const LoginReg = () => {
+export const SignUp = () => {
     const [credentials, setCredentials ] = useState({
-        
+        id:'',
         email: '',
         password: '',
         username: '',
         role: 'patient'
     });
 
-    const { email, password, username, role} = credentials
+    const { email, password, username, role} = credentials;
 
-    const onChange = e => setCredentials({
-        ...credentials,
+    const onChange = e => {
+        
+        setCredentials({
+            ...credentials,
         [e.target.name]: e.target.value
-    })
+        })
+    }
 
     const onSubmit = e => {
         e.preventDefault();
         setCredentials({
-            
+            id: '',
             email: '',
             password: '',
             username: '',
@@ -34,19 +37,19 @@ export const LoginReg = () => {
            <input
            type="email"
            placeholder="email"
-           value={email}
+           value={email.credentials}
            onChange={onChange}
            />
             <input
            type="password"
            placeholder="password"
-           value={password}
+           value={password.credentials}
            onChange={onChange}
            />
             <input
            type="text"
            placeholder="username"
-           value={username}
+           value={username.credentials}
            onChange={onChange}
            />
            <h5>Role</h5>
@@ -75,4 +78,4 @@ export const LoginReg = () => {
     )
 }
 
-export default LoginReg;
+export default SignUp;
