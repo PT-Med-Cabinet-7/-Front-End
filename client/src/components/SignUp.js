@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-export const LoginReg = () => {
+export const SignUp = () => {
     const [credentials, setCredentials ] = useState({
         id:'',
         email: '',
@@ -78,4 +78,4 @@ export const LoginReg = () => {
     )
 }
 
-export default LoginReg;
+export default SignUp;
