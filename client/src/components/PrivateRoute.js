@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Strains from './Strains'
+import StrainSelctionForm from '../components/strains/StrainSelectionForm'
 
 
 export const PrivateRoute = ({ component: Component, ...rest}) => {
