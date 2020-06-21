@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import StrainSelectContext from '../context/strainsSelectContext/strainSelectContext'
 // import Select from 'react-select';
 // import makeAnimated from 'react-select/animated'
 
@@ -80,6 +81,7 @@ const effect = [
 
 
 export const StrainSelectionForm = () => {
+    const strainSelectContext = useContext(StrainSelectContext)
     const [flavorsEffects, setFlavorsEffects] = useState({
         flavor1: '',
         flavor2: '',
@@ -91,11 +93,29 @@ export const StrainSelectionForm = () => {
         effect3: '',
        
     });
+
+    const { addStrainSelection, current } = strainSelectContext
    
 
     const { flavor1, flavor2, flavor3, flavor4, flavor5, effect1, effect2, effect3} = flavorsEffects
 
+    // useEffect(()=> {
+    //     if(current !== null){
+    //         setFlavorsEffects(current)
+    //     }else{
+    //         setFlavorsEffects({
+    //             flavor1: '',
+    //             flavor2: '',
+    //             flavor3: '',
+    //             flavor4: '',
+    //             flavor5: '',
+    //             effect1: '',
+    //             effect2: '',
+    //             effect3: ''
     
+    //         })
+    //     }
+    // },[strainSelectContext, current])
 
     const onChangeFlavorsEffects = e => {
         setFlavorsEffects(e.target.value)
@@ -105,6 +125,7 @@ export const StrainSelectionForm = () => {
 
     const onSubmitFlavorsEffects = e => {
         e.preventDefault();
+        strainSelectContext.addStrainSelection(flavorsEffects)
         setFlavorsEffects({
             flavor1: '',
             flavor2: '',
@@ -138,7 +159,7 @@ export const StrainSelectionForm = () => {
         
           <form onSubmit={onSubmitFlavorsEffects}>
             <label>
-               <h2>Pick Up To 5 Flavors</h2>
+               <h2 className="text-primary">Pick Up To 5 Flavors</h2>
                <select  onChange={onChangeFlavorsEffects} value={flavor1}>
                     {flavorList}
                </select>

@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 export const NavBar = ({title, icon}) => {
     return (
         <div className="navbar bg-primary">
-            <h1>{title}</h1>
+            <h1>{title}</h1> 
+            <img src={icon}/>
             <ul>
                 <li>
                     <Link to="/">Home</Link>
@@ -20,7 +21,7 @@ export const NavBar = ({title, icon}) => {
                 </li>
 
                 <li>
-                    <Link to="/strainform">Select</Link>
+                    <Link to="/strains">Strains</Link>
                 </li>
 
             </ul>
@@ -30,11 +31,13 @@ export const NavBar = ({title, icon}) => {
 }
 
 NavBar.propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string
 }
 
 NavBar.defaultProps = {
-    title: 'Med Cabinet'
+    title: 'WeedGotcha',
+    icon: 'fas fa-id-card-alt'
 }
 
 export default NavBar; 

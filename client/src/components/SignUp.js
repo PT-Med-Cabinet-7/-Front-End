@@ -33,7 +33,7 @@ export const SignUp = () => {
     
     return (
        <form onSubmit={onSubmit}>
-           <h2>Sign-Up</h2>
+           <h2 className="text-primary">Sign-Up</h2>
            <input
            type="email"
            placeholder="email"
