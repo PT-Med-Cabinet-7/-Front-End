@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import axiosWithAuth from './axiosWithAuth';
 
 
-export const SignUp = () => {
+export const SignUp = props => {
     const [credentials, setCredentials ] = useState({
         id:'',
         email: '',
         password: '',
-        username: '',
-        role: 'patient'
+        username: ''
+        
     });
 
-    const { email, password, username, role} = credentials;
+    const {id, email, password, username } = credentials;
 
     const onChange = e => {
         
@@ -20,19 +21,19 @@ export const SignUp = () => {
         })
     }
 
-    const onSubmit = e => {
+    const signUpSubmit = (e,credentials) => {
         e.preventDefault();
-        setCredentials({
-            id: '',
-            email: '',
-            password: '',
-            username: '',
-            role: 'patient'
-        });
+       axiosWithAuth()
+       .post('/api/auth/register', credentials)
+       .then(res => {
+           window.localStorage.setItem('token', res.payload)
+           props.history.push('/protected')
+       })
+       .catch(err => console.log(err))
     }
     
     return (
-       <form onSubmit={onSubmit}>
+       <form onSubmit={signUpSubmit}>
            <h2 className="text-primary">Sign-Up</h2>
            <input
            type="email"
@@ -52,7 +53,7 @@ export const SignUp = () => {
            value={username.credentials}
            onChange={onChange}
            />
-           <h5>Role</h5>
+           {/* <h5>Role</h5>
            <input
            type="radio"
            name="role"
@@ -66,7 +67,8 @@ export const SignUp = () => {
            value="provider"
            checked={role === 'provider'}
            onChange={onChange}/>
-           Provider{' '}
+           Provider{' '} */}
+           
            <div>
                <input
                type="submit"

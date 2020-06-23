@@ -21,9 +21,9 @@ const App =() =>{
         <Route exact path="/" component={Home}/>
         <Route exact path='/sign-up' component={SignUp}/>
         <Route exact path="/login" component={Login}/>
-        {/* <PrivateRoute exact path="/protected" component={StrainSelectionForm}/> */}
         
-        <Route exact path="/strains" component={Strains}/>
+        
+        <PrivateRoute  path="/protected" component={Strains}/>
         
       </Switch>
         </div>
