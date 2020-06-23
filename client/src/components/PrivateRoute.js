@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Strains from '../components/strains/Strains'
+import Login from './Login'
 
 
 export const PrivateRoute = ({ component: Component, ...rest}) => {
