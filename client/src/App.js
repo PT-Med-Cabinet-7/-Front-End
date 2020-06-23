@@ -20,10 +20,10 @@ const App =() =>{
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path='/sign-up' component={SignUp}/>
-        <Route exact path="/login" component={Login}/>
+        <PrivateRoute exact path="/protected" component={Login}/>
         
         
-        <PrivateRoute  path="/protected" component={Strains}/>
+        <Route  path="/strains" component={Strains}/>
         
       </Switch>
         </div>
