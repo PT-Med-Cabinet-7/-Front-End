@@ -82,17 +82,19 @@ const effect = [
 
 export const StrainSelectionForm = () => {
     const strainSelectContext = useContext(StrainSelectContext)
-    const [flavorsEffects, setFlavorsEffects] = useState({
-        flavor1: '',
-        flavor2: '',
-        flavor3: '',
-        flavor4: '',
-        flavor5: '',
-        effect1: '',
-        effect2: '',
-        effect3: '',
-       
-    });
+    const [flavorsEffects, setFlavorsEffects] = useState([
+        {
+            flavor1: '',
+            flavor2: '',
+            flavor3: '',
+            flavor4: '',
+            flavor5: '',
+            effect1: '',
+            effect2: '',
+            effect3: '',
+           
+        }
+    ]);
 
     const { addStrainSelection, current } = strainSelectContext
    
@@ -118,14 +120,18 @@ export const StrainSelectionForm = () => {
     // },[strainSelectContext, current])
 
     const onChangeFlavorsEffects = e => {
-        setFlavorsEffects(e.target.value)
+        setFlavorsEffects({
+            ...flavorsEffects,
+            [e.target.value]: e.target.value
+        }
+        )
         
 
     }
 
     const onSubmitFlavorsEffects = e => {
         e.preventDefault();
-        strainSelectContext.addStrainSelection(flavorsEffects)
+        addStrainSelection(flavorsEffects)
         setFlavorsEffects({
             flavor1: '',
             flavor2: '',
@@ -142,14 +148,14 @@ export const StrainSelectionForm = () => {
     let flavorList = flavor.length > 0 
     && flavor.map((item,i)=> {
         return(
-        <option key={i} value={item.id}>{item.name}</option>
+        <option key={i} value={item.name}>{item.name}</option>
         )
     })
 
     let effectList = effect.length > 0 
     && effect.map((item,i)=> {
         return(
-        <option key={i} value={item.id}>{item.name}</option>
+        <option key={i} value={item.name}>{item.name}</option>
         )
     })
 
@@ -160,7 +166,7 @@ export const StrainSelectionForm = () => {
           <form onSubmit={onSubmitFlavorsEffects}>
             <label>
                <h2 className="text-primary">Pick Up To 5 Flavors</h2>
-               <select  onChange={onChangeFlavorsEffects} value={flavor1}>
+               <select onChange={onChangeFlavorsEffects} value={flavor1}>
                     {flavorList}
                </select>
                 <select onChange={onChangeFlavorsEffects} value={flavor2}>
@@ -193,6 +199,9 @@ export const StrainSelectionForm = () => {
            </label> 
 
            </form>
+
+
+      
            
        
              
