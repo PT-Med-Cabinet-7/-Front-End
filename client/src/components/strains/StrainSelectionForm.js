@@ -106,7 +106,7 @@ export const StrainSelectionForm = () => {
     // const onChangeFlavorsEffects = e => {
     //     setFlavorsEffects({
     //         ...flavorsEffects,
-    //         [e.target.value]: e.target.value
+    //         [e.target.name]: e.target.value
     //     }
     //     )
         
@@ -145,12 +145,14 @@ export const StrainSelectionForm = () => {
 
 
     
-    // return (
+ return (
+         <div></div>
+        
         
     //       <form onSubmit={onSubmitFlavorsEffects}>
     //         <label>
     //            <h2 className="text-primary">Pick Up To 5 Flavors</h2>
-    //            <select onChange={onChangeFlavorsEffects} value={flavor1}>
+    //            <select onChange={onChangeFlavorsEffects} name='flavor1'value={flavor1}>
     //                 {flavorList}
     //            </select>
     //             <select onChange={onChangeFlavorsEffects} value={flavor2}>

@@ -11,26 +11,28 @@ import SignUp from './components/SignUp'
 
 const App =() =>{
   return (
+    <Router>
     <div className="App">
       
-    <Router>
+    
       <Fragment>
         <NavBar/>
         <div className="container">
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path='/sign-up' component={SignUp}/>
-        <PrivateRoute exact path="/protected" component={Login}/>
+        <PrivateRoute  path="/protected" component={Login}/>
         
         
-        <Route  path="/strains" component={Strains}/>
+        <PrivateRoute  path="/protectedstrains" component={Strains}/>
         
       </Switch>
         </div>
       </Fragment>
-    </Router>
+   
     
     </div>
+    </Router>
   );
 }
 
