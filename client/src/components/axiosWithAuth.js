@@ -7,7 +7,7 @@ export default function axiosWithAuth() {
         headers: {
             authorization: token
         },
-        baseUrl: 'http://ptmc7.herokuapp.com/'
+        baseUrl: 'http://ptmc7.herokuapp.com'
     }
        
     )

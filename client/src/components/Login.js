@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import  axiosWithAuth  from './axiosWithAuth'
+import axios from 'axios';
 
 export const Login = props => {
 
     const [credentials, setCredentials ] = useState({
         id:'',
         password: '',
-        username: ''
+        email: ''
        
     });
 
-    const { password, username } = credentials;
+    const { password, email } = credentials;
+
+    const url = 'https://mc-7-be.herokuapp.com'
 
     const onChange = e => {
         
@@ -22,11 +25,11 @@ export const Login = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-       axiosWithAuth()
-       .post('/api/auth/login', credentials)
+        axios
+        .post(`${url}/api/auth/login`, credentials)
        .then(res => {
            window.localStorage.setItem('token', res.payload)
-           props.history.push('/protected')
+           props.history.push('/protectedstrains')
        })
        .catch(err => console.log(err))
     }
@@ -35,16 +38,18 @@ export const Login = props => {
        <form onSubmit={onSubmit}>
            <h2>Login</h2>
            <input
-           type="text"
-           placeholder="username"
-           value={username.credentials}
+           name="email"
+           type="email"
+           placeholder="email"
+           value={email}
            onChange={onChange}
            />
            
             <input
+            name="password"
            type="password"
            placeholder="password"
-           value={password.credentials}
+           value={password}
            onChange={onChange}
            />
           

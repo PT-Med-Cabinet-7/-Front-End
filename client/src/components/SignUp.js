@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import axiosWithAuth from './axiosWithAuth';
+import axios from 'axios'
 
 
 export const SignUp = props => {
     const [credentials, setCredentials ] = useState({
-        id:'',
+        
         email: '',
         password: '',
-        username: ''
+        username: '',
+        role: 'Patient'
         
     });
 
-    const {id, email, password, username } = credentials;
+    const url = 'https://mc-7-be.herokuapp.com'
+
+    const { email, password, username } = credentials;
 
     const onChange = e => {
         
@@ -21,12 +25,12 @@ export const SignUp = props => {
         })
     }
 
-    const signUpSubmit = (e,credentials) => {
+    const signUpSubmit = (e) => {
         e.preventDefault();
-       axiosWithAuth()
-       .post('/api/auth/register', credentials)
+       axios
+       .post(`${url}/api/auth/register`, credentials)
        .then(res => {
-           window.localStorage.setItem('token', res.payload)
+           localStorage.setItem('token', res.data)
            props.history.push('/protected')
        })
        .catch(err => console.log(err))
@@ -36,21 +40,24 @@ export const SignUp = props => {
        <form onSubmit={signUpSubmit}>
            <h2 className="text-primary">Sign-Up</h2>
            <input
+           name="email"
            type="email"
            placeholder="email"
-           value={email.credentials}
+           value={email}
            onChange={onChange}
            />
             <input
+            name="password"
            type="password"
            placeholder="password"
-           value={password.credentials}
+           value={password}
            onChange={onChange}
            />
             <input
+            name="username"
            type="text"
            placeholder="username"
-           value={username.credentials}
+           value={username}
            onChange={onChange}
            />
            {/* <h5>Role</h5>
@@ -58,14 +65,14 @@ export const SignUp = props => {
            type="radio"
            name="role"
            value="patient"
-           checked={role === 'patient'}
+           checked={credentials.role === 'patient'}
            onChange={onChange}/>
            Patient{' '}
            <input
            type="radio"
            name="role"
            value="provider"
-           checked={role === 'provider'}
+           checked={credentials.role === 'provider'}
            onChange={onChange}/>
            Provider{' '} */}
            
