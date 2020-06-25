@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export const NavBar = ({title, icon}) => {
@@ -9,7 +9,7 @@ export const NavBar = ({title, icon}) => {
             <img />
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="https://pt-med-cabinet-7.github.io/Marketing/about.html">Home</Link>
                 </li>
 
                 <li>

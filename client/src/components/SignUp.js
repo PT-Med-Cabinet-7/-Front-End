@@ -37,13 +37,22 @@ export const SignUp = props => {
     }
     
     return (
+        <div className="form-container">
        <form onSubmit={signUpSubmit}>
            <h2 className="text-primary">Sign-Up</h2>
+           
            <input
            name="email"
            type="email"
            placeholder="email"
            value={email}
+           onChange={onChange}
+           />
+             <input
+            name="username"
+           type="text"
+           placeholder="username"
+           value={username}
            onChange={onChange}
            />
             <input
@@ -53,13 +62,7 @@ export const SignUp = props => {
            value={password}
            onChange={onChange}
            />
-            <input
-            name="username"
-           type="text"
-           placeholder="username"
-           value={username}
-           onChange={onChange}
-           />
+          
            {/* <h5>Role</h5>
            <input
            type="radio"
@@ -83,7 +86,9 @@ export const SignUp = props => {
                className="btn btn-block bg-dark"
                />
            </div>
+
        </form>
+       </div>
     )
 }
 

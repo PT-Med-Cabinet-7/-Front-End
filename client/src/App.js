@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css';
-import Home from './components/Home';
+
 import Navbar, { NavBar } from './components/NavBar'
 import Strains from './components/strains/Strains'
 import PrivateRoute from './components/PrivateRoute'
@@ -15,20 +15,17 @@ const App =() =>{
     <div className="App">
       
     
-      <Fragment>
+      
         <NavBar/>
         <div className="container">
-      <Switch>
-        <Route exact path="/" component={Home}/>
         <Route exact path='/sign-up' component={SignUp}/>
+        <Switch>
         <PrivateRoute  path="/protected" component={Login}/>
-        
-        
-        <PrivateRoute  path="/protectedstrains" component={Strains}/>
+       <PrivateRoute  path="/protectedstrains" component={Strains}/>
         
       </Switch>
         </div>
-      </Fragment>
+      
    
     
     </div>
