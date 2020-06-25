@@ -35,6 +35,7 @@ export const Login = props => {
     }
     
     return (
+        <div className="form-container">
        <form onSubmit={onSubmit}>
            <h2>Login</h2>
            <input
@@ -84,6 +85,7 @@ export const Login = props => {
                />
            </div> */}
        </form>
+       </div>
     )
 }
 
