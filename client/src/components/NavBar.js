@@ -9,7 +9,7 @@ export const NavBar = ({title, icon}) => {
             <img />
             <ul>
                 <li>
-                    <Link to="https://pt-med-cabinet-7.github.io/Marketing/about.html">Home</Link>
+                    <NavLink to="https://pt-med-cabinet-7.github.io/Marketing/about.html">Home</NavLink>
                 </li>
 
                 <li>
@@ -22,6 +22,8 @@ export const NavBar = ({title, icon}) => {
                 <li>
                     <Link to="/strains">Strains</Link>
                 </li>
+
+                
 
             </ul>
             

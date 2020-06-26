@@ -1,6 +1,6 @@
 import React from 'react';
-
-import StrainSelctionForm from './StrainSelectionForm';
+import GetStrains from './GetStrains'
+import StrainSelectionForm from './StrainSelectionForm';
 import StrainSelectionState from '../context/strainsSelectContext/StrainSelectionState'
 
 export const Strains = () => {
@@ -8,10 +8,12 @@ export const Strains = () => {
         <StrainSelectionState>
         <div>
             <div>
-                <StrainSelctionForm/>
+                <StrainSelectionForm/>
             </div>
 
-            
+            <div>
+            <GetStrains/>
+            </div>
             
         </div>
         </StrainSelectionState>

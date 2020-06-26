@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import  axiosWithAuth  from './axiosWithAuth'
+import React, { useState, Fragment } from 'react';
+
+import User from '../components/Users/User'
 import axios from 'axios';
 
 export const Login = props => {
@@ -85,7 +86,13 @@ export const Login = props => {
                />
            </div> */}
        </form>
+
+       <Fragment>
+           <User/>
+       </Fragment>
        </div>
+      
+
     )
 }
 
