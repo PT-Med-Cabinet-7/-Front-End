@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
-import StrainSelectContext from '../context/strainsSelectContext/strainSelectContext'
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated'
+import { Card, CardImg, Form, FormGroup, Input, Label, Button } from "reactstrap"
+import StrainSelectContext from '../context/strainsSelectContext/strainSelectContext';
+// import Select from 'react-select';
+// import makeAnimated from 'react-select/animated'
 
 const flavor = [
     { id: 1, name: "Sweet"},
@@ -55,7 +56,7 @@ const flavor = [
     { id: 49, name: "Spicy/Herbal"},
     { id: 50, name: "None"},
 
-]
+];
 
 const effect = [
     { id: 1, name: "Giggly"},
@@ -74,135 +75,20 @@ const effect = [
     { id: 14, name: "Hungry"},
     { id: 15, name: "Happy"},
     { id: 16, name: "None"},
-]
+];
 
+const StrainSelectionForm = () => {
 
+    return (
+        <div>
 
+            <Card color = "gold">
+                <h2>Select 3 Effects and 5 Flavors below...</h2>
+            </Card>
 
-
-export const StrainSelectionForm = () => {
-    const strainSelectContext = useContext(StrainSelectContext)
-    const [flavorsEffects, setFlavorsEffects] = useState([
-        {
-            flavor1: '',
-            flavor2: '',
-            flavor3: '',
-            flavor4: '',
-            flavor5: '',
-            effect1: '',
-            effect2: '',
-            effect3: '',
-           
-        }
-    ]);
-
-    const { addStrainSelection, current } = strainSelectContext
-   
-
-    const { flavor1, flavor2, flavor3, flavor4, flavor5, effect1, effect2, effect3} = flavorsEffects
-
-    
-
-    const onChangeFlavorsEffects = e => {
-        setFlavorsEffects({
-            ...flavorsEffects,
-            [e.target.name]: e.target.value
-        }
-        )
-        
-
-    }
-
-    const onSubmitFlavorsEffects = e => {
-        e.preventDefault();
-        // addStrainSelection(flavorsEffects)
-        setFlavorsEffects({
-            flavor1: '',
-            flavor2: '',
-            flavor3: '',
-            flavor4: '',
-            flavor5: '',
-            effect1: '',
-            effect2: '',
-            effect3: ''
-
-        })
-    }
-
-    let flavorList = flavor.length > 0 
-    && flavor.map((item,i)=> {
-        return(
-        <option key={i} value={item.name}>{item.name}</option>
-        )
-    })
-
-    let effectList = effect.length > 0 
-    && effect.map((item,i)=> {
-        return(
-        <option key={i} value={item.name}>{item.name}</option>
-        )
-    })
-
-
-    
- return (
-         <div>
-        
-        
-          <form onSubmit={onSubmitFlavorsEffects}>
-            <label>
-               <h2 className="text-primary">Pick Up To 5 Flavors</h2>
-               <select onChange={onChangeFlavorsEffects} name='flavor1'value={flavor1}>
-                    {flavorList}
-               </select>
-                <select onChange={onChangeFlavorsEffects} value={flavor2}>
-                   {flavorList}
-               </select>
-               <select onChange={onChangeFlavorsEffects} value={flavor3}>
-                   {flavorList}
-               </select>
-               <select onChange={onChangeFlavorsEffects} value={flavor4}>
-                   {flavorList}
-               </select>
-               <select onChange={onChangeFlavorsEffects} value={flavor5}>
-                   {flavorList}
-               </select>
-            </label>
-               <label>
-              <h2>Pick Up To 3 Effects</h2>
-              <select  onChange={onChangeFlavorsEffects} value={effect1}>
-                   {effectList}
-              </select>
-               <select onChange={onChangeFlavorsEffects} value={effect2}>
-                  {effectList}
-              </select>
-              <select onChange={onChangeFlavorsEffects} value={effect3}>
-                  {effectList}
-              </select>
-               
-            
-               <input type="submit" value="Submit" className="btn btn-block btn-dark"/>
-           </label> 
-
-           </form>
         </div>
-
-
-      
-           
-       
-             
-              
-           
-           
-
-          
-
-          
-           
-       
-
     )
+
 }
 
 export default StrainSelectionForm;

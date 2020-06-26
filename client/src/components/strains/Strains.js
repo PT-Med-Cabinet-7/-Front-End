@@ -1,21 +1,13 @@
 import React from 'react';
-
 import StrainSelectionForm from './StrainSelectionForm';
 import StrainSelectionState from '../context/strainsSelectContext/StrainSelectionState'
 
-export const Strains = () => {
+function Strains() {
     return (
-        <StrainSelectionState>
         <div>
-            <div>
-                <StrainSelectionForm/>
-            </div>
-
-            
-            
+            <StrainSelectionForm><h2>hi</h2></StrainSelectionForm>
         </div>
-        </StrainSelectionState>
     )
-}
+};
 
 export default Strains;
