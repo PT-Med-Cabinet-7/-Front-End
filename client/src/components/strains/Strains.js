@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StrainSelctionForm from './StrainSelectionForm';
+import StrainSelectionForm from './StrainSelectionForm';
 import StrainSelectionState from '../context/strainsSelectContext/StrainSelectionState'
 
 export const Strains = () => {
@@ -8,7 +8,7 @@ export const Strains = () => {
         <StrainSelectionState>
         <div>
             <div>
-                <StrainSelctionForm/>
+                <StrainSelectionForm/>
             </div>
 
             
@@ -18,4 +18,4 @@ export const Strains = () => {
     )
 }
 
-export default Strains
+export default Strains;
