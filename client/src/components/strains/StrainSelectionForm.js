@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Card, CardImg, Form, FormGroup, Input, Label, Button } from "reactstrap"
 import StrainSelectContext from '../context/strainsSelectContext/strainSelectContext';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 // import Select from 'react-select';
 // import makeAnimated from 'react-select/animated'
 
@@ -82,9 +84,18 @@ const StrainSelectionForm = () => {
     return (
         <div>
 
-            <Card color = "gold">
-                <h2>Select 3 Effects and 5 Flavors below...</h2>
+            <Card>
+                <h2 style = {{color: "teal"}}>Select 3 Effects and 5 Flavors below</h2>
             </Card>
+
+            <FormGroup>
+                <legend style = {{color: "teal"}}>Flavors</legend>
+                <FormGroup check>
+                    <Label check>
+                        <Input type = "checkbox" name = "test" checked = {FormData.test} />
+                    </Label>
+                </FormGroup>
+            </FormGroup>
 
         </div>
     )
