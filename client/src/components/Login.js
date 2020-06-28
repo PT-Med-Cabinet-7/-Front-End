@@ -1,6 +1,6 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 
-import User from '../components/Users/User'
+
 import axios from 'axios';
 
 export const Login = props => {
@@ -34,6 +34,22 @@ export const Login = props => {
        })
        .catch(err => console.log(err))
     }
+
+    // useEffect(()=> {
+        
+    //     axios
+    //     .get(`${url}/api/user/${credentials.id}`)
+    //    .then(res => {
+    //        window.localStorage.setItem('token', res.data)
+    //     //    props.history.push('/protectedstrains')
+    //     setCredentials(res.data)
+    //     console.log(res.data)
+    //    })
+    //    .catch(err => console.log(err))
+
+    // },[credentials])
+       
+    
     
     return (
         <div className="form-container">
@@ -87,9 +103,8 @@ export const Login = props => {
            </div> */}
        </form>
 
-       <Fragment>
-           <User/>
-       </Fragment>
+       
+
        </div>
       
 

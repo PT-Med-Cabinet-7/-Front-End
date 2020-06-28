@@ -1,7 +1,10 @@
-// export const ADD_STRAINSELECTION = 'ADD_STRAINSELECTION';
-// export const DELETE_STRAINSELECTION = 'DELETE_STRAINSELECTION';
-// export const SET_CURRENT = 'SET_CURRENT';
-// export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+export const ADD_STRAIN = 'ADD_STRAIN';
+export const GET_STRAIN = 'GET_STRAIN';
+export const DELETE_STRAIN = 'DELETE_STRAIN';
+export const SET_CURRENT = 'SET_CURRENT';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+export const GRAB_FLAVOR = 'GRAB_FLAVOR';
+export const GRAB_EFFECT = 'GRAB_EFFECT';
 // export const GET_USER = 'GET_USER'
 // export const ClEAR_USER = 'CLEAR_USER'
 // export const ADD_USER = 'ADD_USER'
