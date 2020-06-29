@@ -1,20 +1,20 @@
 import React from 'react';
 
-import StrainSelctionForm from './StrainSelectionForm';
-import StrainSelectionState from '../context/strainsSelectContext/StrainSelectionState'
+import StrainSelectionForm from './StrainSelectionForm';
+import StrainState from '../context/strainsContext/StrainState'
 
 export const Strains = () => {
     return (
-        <StrainSelectionState>
+        <StrainState>
         <div>
             <div>
-                <StrainSelctionForm/>
+                <StrainSelectionForm/>
             </div>
 
-            
+           
             
         </div>
-        </StrainSelectionState>
+        </StrainState>
     )
 }
 

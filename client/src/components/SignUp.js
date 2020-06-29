@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axiosWithAuth from './axiosWithAuth';
-import axios from 'axios'
+import axios from 'axios';
 
 
 export const SignUp = props => {

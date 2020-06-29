@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import StrainSelectContext from '../context/strainsSelectContext/strainSelectContext'
-// import Select from 'react-select';
-// import makeAnimated from 'react-select/animated'
+import StrainContext from '../context/strainsContext/strainContext'
+import StrainState from '../context/strainsContext/StrainState'
+import axios from 'axios'
 
-const flavor = [
+const flavors = [
     { id: 1, name: "Sweet"},
     { id: 2, name: 'Tropical'},
     { id: 3, name: 'Peach'},
@@ -57,7 +57,7 @@ const flavor = [
 
 ]
 
-const effect = [
+const effects = [
     { id: 1, name: "Giggly"},
     { id: 2, name: 'Aroused'},
     { id: 3, name: 'Energetic'},
@@ -81,127 +81,128 @@ const effect = [
 
 
 export const StrainSelectionForm = () => {
-    const strainSelectContext = useContext(StrainSelectContext)
-    const [flavorsEffects, setFlavorsEffects] = useState([
-        {
-            flavor1: '',
-            flavor2: '',
-            flavor3: '',
-            flavor4: '',
-            flavor5: '',
-            effect1: '',
-            effect2: '',
-            effect3: '',
-           
-        }
-    ]);
+    const strainContext = useContext(StrainContext)
+    const [strain, setStrain] = useState([])
+    const [flavorsEffects, setFlavorsEffects] = useState({
+         flavor: '',
+         effect: '',
+        
+    }
+      
+    );
 
-    // const { addStrainSelection, current } = strainSelectContext
-   
+    const { current, grabflavor, grabeffect, addStrain, strains, deleteStrain } = strainContext
 
-    // const { flavor1, flavor2, flavor3, flavor4, flavor5, effect1, effect2, effect3} = flavorsEffects
+
+
+     
 
     
 
-    // const onChangeFlavorsEffects = e => {
-    //     setFlavorsEffects({
-    //         ...flavorsEffects,
-    //         [e.target.name]: e.target.value
-    //     }
-    //     )
+    
+   
+
+    const { flavor,  effect} = flavorsEffects
+
+    
         
+     const onChangeFlavorsEffects = e => {
+            setFlavorsEffects({
+                ...flavorsEffects,
+                [e.target.name]: e.target.value
+            })
+     }
+    
 
-    // }
+    const onSubmitFlavorsEffects = (e,) => {
+        e.preventDefault();
+        axios
+        .get(`https://mc-7-be.herokuapp.com/api/strains/${effect}/${flavor}`)
+        .then(res => {
+            // setStrain(res.data)
+            addStrain(res.data)
+            setStrain(res.data)
+            console.log(res.data)
+        })
+        
+       
+        grabflavor(flavor)
+        grabeffect(effect)
 
-    // const onSubmitFlavorsEffects = e => {
-    //     e.preventDefault();
-    //     // addStrainSelection(flavorsEffects)
-    //     setFlavorsEffects({
-    //         flavor1: '',
-    //         flavor2: '',
-    //         flavor3: '',
-    //         flavor4: '',
-    //         flavor5: '',
-    //         effect1: '',
-    //         effect2: '',
-    //         effect3: ''
+    }
 
-    //     })
-    // }
+   
 
-    // let flavorList = flavor.length > 0 
-    // && flavor.map((item,i)=> {
-    //     return(
-    //     <option key={i} value={item.name}>{item.name}</option>
-    //     )
-    // })
+  
 
-    // let effectList = effect.length > 0 
-    // && effect.map((item,i)=> {
-    //     return(
-    //     <option key={i} value={item.name}>{item.name}</option>
-    //     )
-    // })
+
+
+       let flavorList = flavors.length > 0 
+    && flavors.map((item,i)=> {
+        return(
+        <option key={i} value={item.name}>{item.name}</option>
+        )
+    })
+
+    let effectList = effects.length > 0 
+    && effects.map((item,i)=> {
+        return(
+        <option key={i} value={item.name}>{item.name}</option>
+        )
+    })
+
+    
 
 
     
  return (
-         <div></div>
+         
+      <StrainState>     
+<div>   
         
-        
-    //       <form onSubmit={onSubmitFlavorsEffects}>
-    //         <label>
-    //            <h2 className="text-primary">Pick Up To 5 Flavors</h2>
-    //            <select onChange={onChangeFlavorsEffects} name='flavor1'value={flavor1}>
-    //                 {flavorList}
-    //            </select>
-    //             <select onChange={onChangeFlavorsEffects} value={flavor2}>
-    //                {flavorList}
-    //            </select>
-    //            <select onChange={onChangeFlavorsEffects} value={flavor3}>
-    //                {flavorList}
-    //            </select>
-    //            <select onChange={onChangeFlavorsEffects} value={flavor4}>
-    //                {flavorList}
-    //            </select>
-    //            <select onChange={onChangeFlavorsEffects} value={flavor5}>
-    //                {flavorList}
-    //            </select>
-    //         </label>
-    //            <label>
-    //           <h2>Pick Up To 3 Effects</h2>
-    //           <select  onChange={onChangeFlavorsEffects} value={effect1}>
-    //                {effectList}
-    //           </select>
-    //            <select onChange={onChangeFlavorsEffects} value={effect2}>
-    //               {effectList}
-    //           </select>
-    //           <select onChange={onChangeFlavorsEffects} value={effect3}>
-    //               {effectList}
-    //           </select>
+    <form onSubmit={onSubmitFlavorsEffects} >
+            <label>
+               <h2 className="text-primary">Pick 1 Flavor</h2>
+               <select onChange={onChangeFlavorsEffects} name='flavor'value={flavor}>
+                    {flavorList}
+               </select>
+            
+            </label>
+               <label>
+              <h2>Pick 1 Effect</h2>
+              <select  onChange={onChangeFlavorsEffects} name="effect"value={effect}>
+                   {effectList}
+              </select>
+         
                
             
-    //            <input type="submit" value="Submit" className="btn btn-block btn-dark"/>
-    //        </label> 
+               <input type="submit" value="Submit" className="btn btn-block btn-dark"/>
+           </label> 
 
-    //        </form>
+           </form>
 
+<div >
+{strains.map(array => array.map(data => {
+     return(
+        <div className="card bg-dark">
+            <h3 className="text-primary text-left">{data.id}</h3><i className="fas fa-cannabis text-primary"></i>
+    <h4 className="text-primary">StrainType:{' '}{data.straintype}</h4>
+    <h4 className="text-primary">Flavors:{' '}{data.flavor}</h4>
+    <h4 className="text-primary">Effects:{' '}{data.effect}</h4>
+    <h4 className="text-primary">Rating:{' '}{data.rating}</h4>
+            <p>{data.description}</p>
+            {/* <button onClick={deleteStrain(data)}>DELETE STRAIN</button> */}
+        </div> )
+}))}
+    
 
+</div>
       
            
-       
-             
-              
-           
-           
-
-          
-
-          
-           
-       
-
+</div>
+</StrainState>      
     )
+    
 }
 
 export default StrainSelectionForm;
