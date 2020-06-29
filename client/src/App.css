@@ -444,3 +444,7 @@ table th {
 }
 
 /* Strain Selection Form */
+.checkStyles {
+  display: flex;
+  flex-direction: column;
+}

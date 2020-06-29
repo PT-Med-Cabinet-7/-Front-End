@@ -5,7 +5,6 @@ const effectCheckboxes = [
         name: 'Giggly',
         key: 'checkBox1',
         label: 'Check Box 1',
-        id: 1,
     },
     {
         name: 'Aroused',
