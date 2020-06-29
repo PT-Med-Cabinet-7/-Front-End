@@ -1,4 +1,4 @@
-const checkboxes = [
+const flavorCheckboxes = [
 
     //Flavors
     {
@@ -270,4 +270,4 @@ const checkboxes = [
     
 ];
 
-export default checkboxes;
+export default flavorCheckboxes;
