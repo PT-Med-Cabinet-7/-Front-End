@@ -88,3 +88,22 @@ const effectCheckboxes = [
 ];
 
 export default effectCheckboxes;
+
+// const effect = [
+//     { id: 1, name: "Giggly"},
+//     { id: 2, name: 'Aroused'},
+//     { id: 3, name: 'Energetic'},
+//     { id: 4, name: 'Sleepy'},
+//     { id: 5, name: 'Euphoric'},
+//     { id: 6, name: 'Uplifted'},
+//     { id: 7, name: "Focused"},
+//     { id: 8, name: 'Creative'},
+//     { id: 9, name: "Talkative"},
+//     { id: 10, name: "Mouth"},
+//     { id: 11, name: "Dry"},
+//     { id: 12, name: "Tingly"},
+//     { id: 13, name: "Relaxed"},
+//     { id: 14, name: "Hungry"},
+//     { id: 15, name: "Happy"},
+//     { id: 16, name: "None"},
+// ];
